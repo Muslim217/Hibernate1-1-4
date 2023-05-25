@@ -10,10 +10,10 @@ public class Util {
     public static final String NAME = "root";
     public static final String PASSWORD = "22117788";
 
-    private Connection connection;
+    public static Connection connection;
 
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         if (connection == null) {
             try {
                 connection = DriverManager.getConnection(URL, NAME, PASSWORD);
@@ -25,6 +25,14 @@ public class Util {
             }
         }
         return connection;
+    }
+
+    public static void closedConnection() {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 // реализуйте настройку соеденения с БД
 }
