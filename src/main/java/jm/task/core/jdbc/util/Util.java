@@ -15,9 +15,9 @@ public class Util {
     public static final String NAME = "root";
     public static final String PASSWORD = "22117788";
 
-    private static SessionFactory sessionFactory;
 
-    public static SessionFactory getSessionFactory() {
+
+    public static SessionFactory getSessionFactory(SessionFactory sessionFactory) {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration();
@@ -48,5 +48,10 @@ public class Util {
         }
         return sessionFactory;
     }
+    public static void sessionFactoryIsClose (SessionFactory sessionFactory){
+        sessionFactory.close();
+
+    }
+
 }
 
